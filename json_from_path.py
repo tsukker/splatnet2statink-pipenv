@@ -1,3 +1,4 @@
+import datetime as dt
 import http
 import json
 import os
@@ -12,6 +13,10 @@ if __name__ == "__main__":
     api = Api()
     print("path:")
     path = input()
+    if path == "":
+        path = "/results"
+    elif path[0] != '/':
+        path = '/' + path
     resp = api.request(path)
     assert (resp.status_code == http.HTTPStatus.OK)
     if getattr(sys, 'frozen', False):
@@ -20,6 +25,8 @@ if __name__ == "__main__":
         app_path = os.path.dirname(__file__)
     print("json filename:")
     filename = input()
+    if filename == "":
+        filename = "{}_{}.json".format(path.replace("/", ""), dt.datetime.now().strftime("%Y%m%d%H%M"))
     filepath = os.path.join(app_path, filename)
     f = open(filepath, "w")
     json.dump(

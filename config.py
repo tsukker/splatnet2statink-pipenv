@@ -3,9 +3,10 @@ import os
 import sys
 
 import iksm
+import splatnet2statink
 
 attrs = ["api_key", "cookie", "user_lang", "session_token"]
-A_VERSION = "1.5.3"
+A_VERSION = splatnet2statink.A_VERSION
 
 
 # Mainly manages Cookie.
