@@ -4,14 +4,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pylint = "~=2.4"
-yapf = "~=0.29"
+pylint = "*"
+yapf = "*"
 
 [packages]
-future = "~=0.18"
-msgpack-python = "~=0.5"
-pillow = "~=7.0"
-requests = "~=2.23"
+future = "*"
+msgpack-python = "*"
+pillow = "*"
+requests = "*"
 
 [requires]
 python_version = "3.8"
