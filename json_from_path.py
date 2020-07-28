@@ -3,18 +3,19 @@ import http
 import json
 import os
 import sys
+import termios
 import time
 
 import requests
 
 from api import Api
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     api = Api()
-    print("path:")
+    print('path:')
     path = input()
-    if path == "":
-        path = "/results"
+    if path == '':
+        path = '/results'
     elif path[0] != '/':
         path = '/' + path
     resp = api.request(path)
@@ -23,12 +24,14 @@ if __name__ == "__main__":
         app_path = os.path.dirname(sys.executable)
     elif __file__:
         app_path = os.path.dirname(__file__)
-    print("json filename:")
+    print('json filename:')
     filename = input()
-    if filename == "":
-        filename = "{}_{}.json".format(path.replace("/", ""), dt.datetime.now().strftime("%Y%m%d%H%M"))
+    if filename == '':
+        filename = '{}_{}.json'.format(
+            path.replace('/', ''),
+            dt.datetime.now().strftime('%Y%m%d%H%M'))
     filepath = os.path.join(app_path, filename)
-    f = open(filepath, "w")
+    f = open(filepath, 'w')
     json.dump(
         resp.json(),
         f,
