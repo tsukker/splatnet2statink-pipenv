@@ -43,6 +43,7 @@ if __name__ == '__main__':
         app_path = os.path.dirname(__file__)
     json_dir = 'json'
     json_path = os.path.join(app_path, json_dir)
+    os.makedirs(json_path, exist_ok=True)
     filename = ''
     if filename == '':
         filename = '{}_{}.json'.format(
